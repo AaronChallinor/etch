@@ -7,26 +7,54 @@ box-sizing: border-box;
 #container {
     background-color: pink;
     display:flex;
-    height: 500px;
-    width: 500px;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content:left; 
     flex-wrap: wrap;
-    border-style: solid;
-    border-color: black;
+    /*max-width: 80px;*/
+    margin:20px;
+  
+
+    
 
   }
+
+/* container max width needs to 20px * input value*/
+
 
   .pixel {
     background-color: white;
-    height: auto;
-    width: 10%;
-    padding: 0;
+    height: 20px;
+    width: 20px;
     border: 1px solid black;
+    
    
   }
 
- 
+  #bottom {
+    margin:20px;
+
+      }
+       */
 
 
+  #gridsize {
+max-width: 50px;
+min-height: 30px;
+font-size: medium;
+text-align: center;
+
+  }
+
+   #submitButton {
+min-width: 50px;
+min-height: 30px;
+
+
+  }
+  
+
+label{
+  margin:20px;
+
+}
 
