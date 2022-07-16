@@ -3,6 +3,11 @@ let pixelCount = 0; //determines how many times the for loop runs
 let submitButton = document.getElementById("submitButton");
 
 submitButton.addEventListener("click",() => {calcGrid();})
+document.addEventListener("keyup",(e)=> {
+    
+    if(e.keyCode === 13){
+    
+    calcGrid();}})
 
 
 
