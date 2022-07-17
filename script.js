@@ -1,7 +1,14 @@
 const container = document.getElementById("container"); //Telling the JS where our container is.
 let pixelCount = 0; //determines how many times the for loop runs
 let submitButton = document.getElementById("submitButton");
+let rainbowButton = document.getElementById("rainbow");
+let blackButton = document.getElementById("black");
+let eraser = document.getElementById("eraser");
 let pixels = Array.from(container.children);
+let colorMode = 0;
+let randomColor = Math.floor(Math.random()*16777215).toString(16);
+let hexValue = document.getElementById("hexValue");
+
 
 
 
@@ -13,6 +20,15 @@ document.addEventListener("keyup",(e)=> {
     calcGrid();}})
 
 
+rainbowButton.addEventListener("click",() => {colorMode = 1;})
+blackButton.addEventListener("click",() => {colorMode = 0;})
+eraser.addEventListener("click",() => {colorMode = 2;})
+
+
+
+
+
+    
 
 function calcGrid(){
     let oneSide = document.getElementById("sizeInput").value
@@ -46,9 +62,57 @@ function draw(){
 pixels = Array.from(container.children);
     
 pixels.forEach(p => {
+    
     p.addEventListener("mouseover",() => {
-        p.classList.add("pen");})
+        genRandNo();
+        if(colorMode === 1){
+            p.style.backgroundColor = "#" + randomColor;
+
+        } 
+
+        if(colorMode === 2){
+            p.style.backgroundColor = "white";
+            p.style.border = "1px solid rgb(236, 233, 233)"
+
+        } 
+
+
+        else {p.classList.add("pen")};
+    })
+        
+        
+    
+    })
     }
-    )}
+
+
     
     
+
+    function genRandNo () {
+    randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+    }
+
+
+    let intervalId = window.setInterval(function(){
+        if(colorMode === 1){
+
+            hexValue.innerText = `hexvalue: ${randomColor}`
+        
+        }
+
+        else if(colorMode === 2){
+
+            hexValue.innerText = `hexvalue: #ffffff`;
+        
+        }
+
+        else if(colorMode === 0){
+
+            hexValue.innerText = `hexvalue: #000000`;
+        
+        }
+
+        
+      }, 1);

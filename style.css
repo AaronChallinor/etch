@@ -38,19 +38,40 @@ text-align: center;
 
   }
 
-   #submitButton {
+   #submitButton, #rainbow, #black,#eraser{
 min-width: 50px;
-min-height: 30px;
+min-height: 25px;
+border-radius: 10%;
+padding: 3px;
   }
   
 
-label{
+label, #hexValue {
   margin:20px;
 }
 
 .pen {
-  background-color:black;
+  background-color:#000000;
   border: 0px;
   /* border-radius: 50%; */
 }
 
+#black{
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+    }
+
+
+    #rainbow {
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+      color: #ffffff;
+      font-weight: bolder;
+    }
+
+
+    #eraser {
+      background: white;
+      color: black;
+      font-weight: bolder;
+    }
