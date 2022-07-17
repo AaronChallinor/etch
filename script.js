@@ -8,6 +8,10 @@ let pixels = Array.from(container.children);
 let colorMode = 0;
 let randomColor = Math.floor(Math.random()*16777215).toString(16);
 let hexValue = document.getElementById("hexValue");
+let mouseDown = false;
+
+document.body.onmousedown = ()=> (mouseDown = true); /*Parenthesis are used in an arrow function to return an object*/
+document.body.onmouseup = ()=> (mouseDown = false); 
 
 
 
@@ -65,19 +69,25 @@ pixels.forEach(p => {
     
     p.addEventListener("mouseover",() => {
         genRandNo();
-        if(colorMode === 1){
+
+        if(colorMode === 0 && mouseDown){
+            p.style.backgroundColor = "#000000";
+            p.style.border ="0px";
+
+        }
+        else if(colorMode === 1 && mouseDown){
             p.style.backgroundColor = "#" + randomColor;
+            p.style.border ="0px";
 
         } 
 
-        if(colorMode === 2){
+        else if(colorMode === 2 && mouseDown){
             p.style.backgroundColor = "white";
             p.style.border = "1px solid rgb(236, 233, 233)"
 
         } 
+        else return;
 
-
-        else {p.classList.add("pen")};
     })
         
         
@@ -96,9 +106,10 @@ pixels.forEach(p => {
 
 
     let intervalId = window.setInterval(function(){
-        if(colorMode === 1){
 
-            hexValue.innerText = `hexvalue: ${randomColor}`
+        if(colorMode === 1 && mouseDown){
+
+            hexValue.innerText = `hexvalue: #${randomColor}`
         
         }
 
