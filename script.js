@@ -16,9 +16,12 @@ document.addEventListener("keyup",(e)=> {
 
 function calcGrid(){
     let oneSide = document.getElementById("sizeInput").value
+    if (oneSide > 100){alert("Unable to generate grid larger than 100x100");
+        return;}
+    else{
     pixelCount = oneSide*oneSide;
-    container.style.maxWidth = oneSide * 20 + 'px';
-    generateGrid()
+    container.style.maxWidth = oneSide * 10 + 'px';
+    generateGrid()}
     
 
 

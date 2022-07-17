@@ -5,12 +5,11 @@ box-sizing: border-box;
 }
 
 #container {
-    background-color: pink;
+    background-color: white;
     display:flex;
     flex-direction: row;
     justify-content:left; 
     flex-wrap: wrap;
-    /*max-width: 80px;*/
     margin:20px;
   
 
@@ -18,23 +17,17 @@ box-sizing: border-box;
 
   }
 
-/* container max width needs to 20px * input value*/
-
-
   .pixel {
     background-color: white;
-    height: 20px;
-    width: 20px;
-    border: 1px solid black;
-    
-   
+    height: 10px;
+    width: 10px;
+    border: 1px solid rgb(236, 233, 233);
   }
 
   #bottom {
     margin:20px;
-
       }
-       */
+     
 
 
   #gridsize {
@@ -48,19 +41,16 @@ text-align: center;
    #submitButton {
 min-width: 50px;
 min-height: 30px;
-
-
   }
   
 
 label{
   margin:20px;
-
 }
 
 .pen {
-  background-color: black;
-
-
+  background-color:black;
+  border: 0px;
+  /* border-radius: 50%; */
 }
 
