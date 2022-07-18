@@ -8,13 +8,15 @@ box-sizing: border-box;
     background-color: white;
     width: 400px;
     display:grid;
-    grid-template-columns: repeat(5, 80px);
-    grid-template-rows: repeat(5, 80px);
+    grid-template-columns: repeat(16, 25px);
+    grid-template-rows: repeat(16, 25px);
     /* flex-direction: row;
     justify-content:left; 
     flex-wrap: wrap; */
     margin:20px;
     border: 1px solid rgb(236, 233, 233);
+    -moz-box-shadow:0 0 20px 5px #999;
+    -webkit-box-shadow: 0 0 20px 5px #999;
   
 
     
@@ -47,10 +49,11 @@ min-width: 50px;
 min-height: 25px;
 border-radius: 10%;
 padding: 3px;
+
   }
   
 
-label, #hexValue {
+label, #hexValue,#footer  {
   margin:20px;
 }
 

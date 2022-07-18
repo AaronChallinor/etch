@@ -11,6 +11,12 @@ let randomColor = Math.floor(Math.random()*16777215).toString(16);
 let hexValue = document.getElementById("hexValue");
 let mouseDown = false;
 
+window.addEventListener("load",(event) =>{
+document.getElementById("sizeInput").value = '16'; /*Sets the initial grid side to 16x16*/
+calcGrid();
+})
+
+
 document.body.onmousedown = ()=> (mouseDown = true); /*Parenthesis are used in an arrow function to return an object*/
 document.body.onmouseup = ()=> (mouseDown = false); 
 
@@ -70,7 +76,7 @@ pixels = Array.from(container.children);
     
 pixels.forEach(p => {
     
-    p.addEventListener("mouseenter",() => {
+    p.addEventListener("mouseover",() => {
         genRandNo();
 
         if(colorMode === 0 && mouseDown){
@@ -93,18 +99,8 @@ pixels.forEach(p => {
 
     })
 
-    
 
-
-    
-
-
-
-        
-        
-    
-    })
-    }
+})}
 
 
     
