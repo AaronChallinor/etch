@@ -1,5 +1,6 @@
 const container = document.getElementById("container"); //Telling the JS where our container is.
 let pixelCount = 0; //determines how many times the for loop runs
+
 let submitButton = document.getElementById("submitButton");
 let rainbowButton = document.getElementById("rainbow");
 let blackButton = document.getElementById("black");
@@ -36,11 +37,13 @@ eraser.addEventListener("click",() => {colorMode = 2;})
 
 function calcGrid(){
     let oneSide = document.getElementById("sizeInput").value
+    let pixelWidth = 400 / oneSide
     if (oneSide > 100){alert("Unable to generate grid larger than 100x100");
         return;}
     else{
     pixelCount = oneSide*oneSide;
-    container.style.maxWidth = oneSide * 10 + 'px';
+    container.style.gridTemplateColumns = `repeat(${oneSide}, ${pixelWidth}px)`;
+    container.style.gridTemplateRows = `repeat(${oneSide}, ${pixelWidth}px)`;
     generateGrid()}
     
 
@@ -67,7 +70,7 @@ pixels = Array.from(container.children);
     
 pixels.forEach(p => {
     
-    p.addEventListener("mouseover",() => {
+    p.addEventListener("mouseenter",() => {
         genRandNo();
 
         if(colorMode === 0 && mouseDown){
@@ -89,6 +92,14 @@ pixels.forEach(p => {
         else return;
 
     })
+
+    
+
+
+    
+
+
+
         
         
     
