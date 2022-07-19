@@ -28,7 +28,9 @@ document.addEventListener("keyup",(e)=> {
     
     if(e.keyCode === 13){
     
-    calcGrid();}})
+    calcGrid();
+    mouseDown = false;
+}})
 
 
 rainbowButton.addEventListener("click",() => {colorMode = 1;})
@@ -69,14 +71,22 @@ for (let i = 0; i < pixelCount;i++){
    
 }
 draw();
+
 }
+
+
 
 function draw(){
 pixels = Array.from(container.children);
     
 pixels.forEach(p => {
     
-    p.addEventListener("mouseover",() => {
+    p.addEventListener("mouseover",()=>{dragDraw()});
+    p.addEventListener("click",()=>{clickDraw()});
+
+
+    
+        function dragDraw(){
         genRandNo();
 
         if(colorMode === 0 && mouseDown){
@@ -97,10 +107,38 @@ pixels.forEach(p => {
         } 
         else return;
 
-    })
+    }
+
+    function clickDraw(){
+        genRandNo();
+
+        if(colorMode === 0){
+            p.style.backgroundColor = "#000000";
+            p.style.border ="0px";
+
+        }
+        else if(colorMode === 1){
+            p.style.backgroundColor = "#" + randomColor;
+            p.style.border ="0px";
+
+        } 
+
+        else if(colorMode === 2){
+            p.style.backgroundColor = "white";
+            p.style.border = "1px solid rgb(236, 233, 233)"
+
+        } 
+        else return;
+
+    }
 
 
-})}
+
+
+})
+
+
+}
 
 
     
